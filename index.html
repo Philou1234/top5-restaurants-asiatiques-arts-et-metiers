@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 des Restaurants Asiatiques - Arts et Métiers</title>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --accent-color: #ffa502;
+            --text-color: #2f3542;
+            --light-color: #f1f2f6;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 30px 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .intro h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .restaurants {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .restaurant-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .restaurant-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .restaurant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .restaurant-card:hover .restaurant-image img {
+            transform: scale(1.05);
+        }
+        
+        .restaurant-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+        
+        .restaurant-content {
+            padding: 1.5rem;
+        }
+        
+        .restaurant-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .restaurant-cuisine {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .restaurant-desc {
+            color: #666;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .restaurant-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .stars {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .price {
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .location svg {
+            margin-right: 0.5rem;
+            fill: #666;
+        }
+        
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            border-radius: 30px 30px 0 0;
+        }
+        
+        footer p {
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .intro h2 {
+                font-size: 1.6rem;
+            }
+            
+            .restaurants {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <h1>Top 5 des Restaurants Asiatiques</h1>
+        <p>Découvrez notre sélection des meilleures adresses asiatiques du quartier Arts et Métiers à Paris</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Saveurs d'Asie au cœur de Paris</h2>
+            <p>Le quartier Arts et Métiers, situé dans le 3ème arrondissement de Paris, regorge de pépites gastronomiques asiatiques. Entre tradition et modernité, découvrez notre sélection des 5 meilleures adresses qui sauront éveiller vos papilles et vous faire voyager.</p>
+        </section>
+        
+        <section class="restaurants">
+            <!-- Restaurant 1 -->
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://source.unsplash.com/random/500x300/?chinese+food" alt="Gros Bao">
+                    <span class="restaurant-badge">TOP 1</span>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Gros Bao</h3>
+                    <span class="restaurant-cuisine">Cuisine Chinoise</span>
+                    <div class="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                        </svg>
+                        7 Rue Saint-Martin, 75003 Paris
+                    </div>
+                    <p class="restaurant-desc">Créé par l'équipe de Petit Bao, ce restaurant offre une expérience authentique des saveurs chinoises avec leurs fameux baos (petits pains farcis cuits à la vapeur) et plats traditionnels revisités.</p>
+                    <div class="restaurant-footer">
+                        <div class="rating">
+                            <div class="stars">★★★★★</div>
+                            <span>4.8</span>
+                        </div>
+                        <div class="price">€€</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Restaurant 2 -->
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://source.unsplash.com/random/500x300/?japanese+food" alt="Zen">
+                    <span class="restaurant-badge">TOP 2</span>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Zen</h3>
+                    <span class="restaurant-cuisine">Cuisine Japonaise</span>
+                    <div class="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                        </svg>
+                        8 Rue de Turbigo, 75003 Paris
+                    </div>
+                    <p class="restaurant-desc">Un havre de paix japonais où les sushis et sashimis d'une fraîcheur exceptionnelle côtoient des plats chauds savoureux. L'élégance zen du lieu complète parfaitement l'expérience culinaire.</p>
+                    <div class="restaurant-footer">
+                        <div class="rating">
+                            <div class="stars">★★★★★</div>
+                            <span>4.7</span>
+                        </div>
+                        <div class="price">€€€</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Restaurant 3 -->
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://source.unsplash.com/random/500x300/?vietnamese+food" alt="Saigon Delight">
+                    <span class="restaurant-badge">TOP 3</span>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Saigon Delight</h3>
+                    <span class="restaurant-cuisine">Cuisine Vietnamienne</span>
+                    <div class="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                        </svg>
+                        12 Rue Volta, 75003 Paris
+                    </div>
+                    <p class="restaurant-desc">Ce petit bijou vietnamien propose des phở, bò bún et bánh mì d'exception. Les saveurs sont authentiques et les portions généreuses, le tout dans une ambiance chaleureuse.</p>
+                    <div class="restaurant-footer">
+                        <div class="rating">
+                            <div class="stars">★★★★☆</div>
+                            <span>4.5</span>
+                        </div>
+                        <div class="price">€€</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Restaurant 4 -->
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://source.unsplash.com/random/500x300/?korean+food" alt="Seoul Food">
+                    <span class="restaurant-badge">TOP 4</span>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Seoul Food</h3>
+                    <span class="restaurant-cuisine">Cuisine Coréenne</span>
+                    <div class="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                        </svg>
+                        9 Rue au Maire, 75003 Paris
+                    </div>
+                    <p class="restaurant-desc">L'adresse incontournable pour les amateurs de cuisine coréenne. Leurs bibimbap et barbecue coréen sont réputés, et ne manquez pas leurs banchan (accompagnements) variés et savoureux.</p>
+                    <div class="restaurant-footer">
+                        <div class="rating">
+                            <div class="stars">★★★★☆</div>
+                            <span>4.4</span>
+                        </div>
+                        <div class="price">€€</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Restaurant 5 -->
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://source.unsplash.com/random/500x300/?thai+food" alt="Siam Garden">
+                    <span class="restaurant-badge">TOP 5</span>
+                </div>
+                <div class="restaurant-content">
+                    <h3 class="restaurant-title">Siam Garden</h3>
+                    <span class="restaurant-cuisine">Cuisine Thaïlandaise</span>
+                    <div class="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>
+                        </svg>
+                        6 Rue Bailly, 75003 Paris
+                    </div>
+                    <p class="restaurant-desc">Une oasis de saveurs thaïlandaises dans le quartier. Leurs curry, pad thaï et salades de papaye sont parfaitement équilibrés entre épices, sucre et acidité. Un vrai voyage culinaire.</p>
+                    <div class="restaurant-footer">
+                        <div class="rating">
+                            <div class="stars">★★★★☆</div>
+                            <span>4.3</span>
+                        </div>
+                        <div class="price">€€</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2025 | Découvrez les saveurs d'Asie dans le quartier Arts et Métiers à Paris</p>
+    </footer>
+</body>
+</html>
